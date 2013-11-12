@@ -7,12 +7,24 @@
 //
 
 #import "AppDelegate.h"
+#import "ECDashBoardViewController.h"
+#import "RPCUtility.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+
+    
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:[[ECDashBoardViewController alloc] init]];
+    [self.window setRootViewController:navController];
+    [self.window setBackgroundColor:[UIColor whiteColor]];
+    [application setNetworkActivityIndicatorVisible:NO];
+    [self.window makeKeyAndVisible];
+
     return YES;
 }
 							
